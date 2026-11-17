@@ -608,24 +608,24 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 async def owner_menu(update: Update, context: ContextTypes.DEFAULT_TYPE):
     keyboard = InlineKeyboardMarkup([
-        [InlineKeyboardButton("🦢 Add Product", callback_data="owner:newproduct"),
-         InlineKeyboardButton("💎 Edit Product", callback_data="owner:editproduct")],
-        [InlineKeyboardButton("🛍️ Add Stock", callback_data="owner:stock"),
-         InlineKeyboardButton("🩰 Manage Profiles", callback_data="owner:addprofile")],
-        [InlineKeyboardButton("💌 Delivery Templates", callback_data="owner:settemplate"),
-         InlineKeyboardButton("🛍️ View Products", callback_data="owner:products")],
-        [InlineKeyboardButton("🧸 Stock Overview", callback_data="owner:stockview"),
-         InlineKeyboardButton("👑 Admin Team", callback_data="owner:admins")],
+        [InlineKeyboardButton("☕ Add Product", callback_data="owner:newproduct"),
+         InlineKeyboardButton("📝 Edit Product", callback_data="owner:editproduct")],
+        [InlineKeyboardButton("📦 Add Stock", callback_data="owner:stock"),
+         InlineKeyboardButton("🗂 Manage Profiles", callback_data="owner:addprofile")],
+        [InlineKeyboardButton("🧾 Delivery Templates", callback_data="owner:settemplate"),
+         InlineKeyboardButton("🥐 View Products", callback_data="owner:products")],
+        [InlineKeyboardButton("📊 Stock Overview", callback_data="owner:stockview"),
+         InlineKeyboardButton("👥 Admin Team", callback_data="owner:admins")],
         [InlineKeyboardButton("🛒 Sales", callback_data="owner:sales"),
-         InlineKeyboardButton("🦋 Buyer Monitoring", callback_data="owner:buyers")],
+         InlineKeyboardButton("☕ Buyer Monitoring", callback_data="owner:buyers")],
         [InlineKeyboardButton("💰 Payroll", callback_data="owner:payroll")],
-        [InlineKeyboardButton("💎 Commission Settings", callback_data="owner:commission")],
-        [InlineKeyboardButton("🌷 Reports & Ranking", callback_data="owner:reports"),
+        [InlineKeyboardButton("⚙️ Commission Settings", callback_data="owner:commission")],
+        [InlineKeyboardButton("📈 Reports & Ranking", callback_data="owner:reports"),
          InlineKeyboardButton("📜 Activity Log", callback_data="owner:audit")],
     ])
     display_name = update.effective_user.full_name if update.effective_user else "there"
     await update.effective_message.reply_text(
-        f"🎀 {display_name}'s DASHBOARD 🎀\nWelcome back! What would you like to manage today? 💗",
+        f"☕ CHI TRACKER — CAFÉ MANAGER\nWelcome back, {display_name}!\n\nFresh stock, smooth sales, and a clear view of your business.",
         reply_markup=keyboard,
     )
 
@@ -682,17 +682,17 @@ async def owner_dashboard_callback(update: Update, context: ContextTypes.DEFAULT
         return
     if action == "home":
         keyboard = InlineKeyboardMarkup([
-            [InlineKeyboardButton("🦢 Add Product", callback_data="owner:newproduct"), InlineKeyboardButton("💎 Edit Product", callback_data="owner:editproduct")],
-            [InlineKeyboardButton("🛍️ Add Stock", callback_data="owner:stock"), InlineKeyboardButton("🩰 Manage Profiles", callback_data="owner:addprofile")],
-            [InlineKeyboardButton("💌 Delivery Templates", callback_data="owner:settemplate"), InlineKeyboardButton("🛍️ View Products", callback_data="owner:products")],
-            [InlineKeyboardButton("🧸 Stock Overview", callback_data="owner:stockview"), InlineKeyboardButton("👑 Admin Team", callback_data="owner:admins")],
-            [InlineKeyboardButton("🛒 Sales", callback_data="owner:sales"), InlineKeyboardButton("🦋 Buyer Monitoring", callback_data="owner:buyers")],
+            [InlineKeyboardButton("☕ Add Product", callback_data="owner:newproduct"), InlineKeyboardButton("📝 Edit Product", callback_data="owner:editproduct")],
+            [InlineKeyboardButton("📦 Add Stock", callback_data="owner:stock"), InlineKeyboardButton("🗂 Manage Profiles", callback_data="owner:addprofile")],
+            [InlineKeyboardButton("🧾 Delivery Templates", callback_data="owner:settemplate"), InlineKeyboardButton("🥐 View Products", callback_data="owner:products")],
+            [InlineKeyboardButton("📊 Stock Overview", callback_data="owner:stockview"), InlineKeyboardButton("👥 Admin Team", callback_data="owner:admins")],
+            [InlineKeyboardButton("🛒 Sales", callback_data="owner:sales"), InlineKeyboardButton("☕ Buyer Monitoring", callback_data="owner:buyers")],
             [InlineKeyboardButton("💰 Payroll", callback_data="owner:payroll")],
-         [InlineKeyboardButton("💎 Commission Settings", callback_data="owner:commission")],
-            [InlineKeyboardButton("🌷 Reports & Ranking", callback_data="owner:reports"), InlineKeyboardButton("📜 Activity Log", callback_data="owner:audit")],
+         [InlineKeyboardButton("⚙️ Commission Settings", callback_data="owner:commission")],
+            [InlineKeyboardButton("📈 Reports & Ranking", callback_data="owner:reports"), InlineKeyboardButton("📜 Activity Log", callback_data="owner:audit")],
         ])
         display_name = update.effective_user.full_name if update.effective_user else "there"
-        await q.edit_message_text(f"🎀 {display_name}'s DASHBOARD 🎀\nWelcome back! What would you like to manage today? 💗", reply_markup=keyboard)
+        await q.edit_message_text(f"☕ CHI TRACKER — CAFÉ MANAGER\nWelcome back, {display_name}!\n\nFresh stock, smooth sales, and a clear view of your business.", reply_markup=keyboard)
         return
     title, body = pages.get(action, ("OWNER DASHBOARD", "Choose an option."))
     keyboard = InlineKeyboardMarkup([[InlineKeyboardButton("🏠 Main Menu", callback_data="owner:home")]])
@@ -701,16 +701,16 @@ async def owner_dashboard_callback(update: Update, context: ContextTypes.DEFAULT
 async def admin_menu(update: Update, context: ContextTypes.DEFAULT_TYPE):
     keyboard = InlineKeyboardMarkup([
         [InlineKeyboardButton("🛒 New Sale", callback_data="admin:sale")],
-        [InlineKeyboardButton("💎 Products & Prices", callback_data="admin:products"),
-         InlineKeyboardButton("🧸 Available Stock", callback_data="admin:stockview")],
-        [InlineKeyboardButton("🌷 My Report", callback_data="admin:report"),
-         InlineKeyboardButton("🏆 Ranking", callback_data="admin:ranking")],
+        [InlineKeyboardButton("🥐 Products & Prices", callback_data="admin:products"),
+         InlineKeyboardButton("📦 Available Stock", callback_data="admin:stockview")],
+        [InlineKeyboardButton("📈 My Report", callback_data="admin:report"),
+         InlineKeyboardButton("🏆 Sales Ranking", callback_data="admin:ranking")],
         [InlineKeyboardButton("🛒 My Sales", callback_data="admin:mysales"),
          InlineKeyboardButton("💰 My Payroll", callback_data="admin:payroll")],
     ])
     display_name = update.effective_user.full_name if update.effective_user else "there"
     await update.effective_message.reply_text(
-        f"💗 {display_name}'s DASHBOARD 💗\nWelcome back! Ready to make today a success? ✨",
+        f"☕ CHI TRACKER — CAFÉ TEAM\nHello, {display_name}!\n\nReady for another productive day at the counter?",
         reply_markup=keyboard,
     )
 
@@ -730,15 +730,15 @@ async def admin_dashboard_callback(update: Update, context: ContextTypes.DEFAULT
     if action == "home":
         keyboard = InlineKeyboardMarkup([
             [InlineKeyboardButton("🛒 New Sale", callback_data="admin:sale")],
-            [InlineKeyboardButton("💎 Products & Prices", callback_data="admin:products"),
-             InlineKeyboardButton("🧸 Available Stock", callback_data="admin:stockview")],
-            [InlineKeyboardButton("🌷 My Report", callback_data="admin:report"),
-             InlineKeyboardButton("🏆 Ranking", callback_data="admin:ranking")],
+            [InlineKeyboardButton("🥐 Products & Prices", callback_data="admin:products"),
+             InlineKeyboardButton("📦 Available Stock", callback_data="admin:stockview")],
+            [InlineKeyboardButton("📈 My Report", callback_data="admin:report"),
+             InlineKeyboardButton("🏆 Sales Ranking", callback_data="admin:ranking")],
             [InlineKeyboardButton("🛒 My Sales", callback_data="admin:mysales"),
              InlineKeyboardButton("💰 My Payroll", callback_data="admin:payroll")],
         ])
         display_name = update.effective_user.full_name if update.effective_user else "there"
-        await q.edit_message_text(f"💗 {display_name}'s DASHBOARD 💗\nWelcome back! Ready to make today a success? ✨", reply_markup=keyboard)
+        await q.edit_message_text(f"☕ CHI TRACKER — CAFÉ TEAM\nHello, {display_name}!\n\nReady for another productive day at the counter?", reply_markup=keyboard)
         return
     if action == "payroll":
         uid = update.effective_user.id
